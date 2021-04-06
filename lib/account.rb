@@ -8,29 +8,36 @@ class Account
 
   def initialize
     @balance = 0
-    @transaction_record = Transaction_record.new.record
+    @transaction_record = TransactionRecord.new.record
   end
 
   def deposit(amount)
     @balance += amount
-    @transaction_record[:date] << date_of_transaction
-    @transaction_record[:credit] << amount
-    @transaction_record[:debit] << "||"
-    @transaction_record[:balance] = @balance 
+    deposit_update_transaction_record(amount)
   end
 
   def withdraw(amount)
     @balance -= amount
-    @transaction_record[:date] << date_of_transaction
-    @transaction_record[:credit] << "||"
-    @transaction_record[:debit] << amount
-    @transaction_record[:balance] = @balance 
-
+    withdraw_update_transaction_record(amount)
   end
 
   private
 
   def date_of_transaction
-    time = Time.new.strftime("%d/%m/%Y")
+    Time.new.strftime('%d/%m/%Y')
+  end
+
+  def deposit_update_transaction_record(amount)
+    @transaction_record[:date] << date_of_transaction
+    @transaction_record[:credit] << amount
+    @transaction_record[:debit] << '||'
+    @transaction_record[:balance] = @balance
+  end
+
+  def withdraw_update_transaction_record(amount)
+    @transaction_record[:date] << date_of_transaction
+    @transaction_record[:credit] << '||'
+    @transaction_record[:debit] << amount
+    @transaction_record[:balance] = @balance
   end
 end
