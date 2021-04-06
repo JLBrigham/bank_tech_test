@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'transaction_record'
-require 'Date'
 
 class Account
   attr_accessor :balance, :transaction_record

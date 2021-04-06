@@ -20,27 +20,22 @@ describe 'account' do
     end
   end
 
-  # add a before each to deposit 20
+  describe 'updating transaction record' do
+    before(:each) { account.deposit(20) }
 
-  describe 'deposit' do
-    it 'should update the transaction record with the date of the deposit, the amount and the current balance of the account' do
-      account.deposit(20)
+    it 'each deposit should update the transaction record with the date of the deposit, the amount and the current balance of the account' do
       # need to stub date rather than using today's date
       expect(account.transaction_record).to eq({ date: ['06/04/2021'], credit: [20], debit: ['||'],
                                                  balance: 20 })
     end
 
     it 'multiple deposits should be recorded in the transaction record, but the current balance is always displayed' do
-      account.deposit(20)
       account.deposit(50)
       expect(account.transaction_record).to eq({ date: ['06/04/2021', '06/04/2021'], credit: [20, 50],
                                                  debit: ['||', '||'], balance: 70 })
     end
-  end
 
-  describe 'withdraw' do
-    it 'should update the transaction record with the date of the withdrawal, the amount and the current balance of the account' do
-      account.deposit(20)
+    it 'each withdrawal should update the transaction record with the date of the withdrawal, the amount and the current balance of the account' do
       account.withdraw(10)
       expect(account.transaction_record).to eq({ date: ['06/04/2021', '06/04/2021'], credit: [20, '||'],
                                                  debit: ['||', 10], balance: 10 })
