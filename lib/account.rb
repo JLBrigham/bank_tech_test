@@ -1,7 +1,9 @@
-class Account
-    attr_accessor :balance
+# frozen_string_literal: true
 
-    def initialize
-        @balance = 0
-    end
+class Account
+  attr_accessor :balance
+
+  def initialize
+    @balance = 0
+  end
 end
