@@ -14,9 +14,9 @@ class Account
   def deposit(amount)
     @balance += amount
     time = Time.new
-    @transaction_record[:date] = time.strftime("%d/%m/%Y")
-    @transaction_record[:credit] = amount
-    @transaction_record[:debit] = "||"
+    @transaction_record[:date] << time.strftime("%d/%m/%Y")
+    @transaction_record[:credit] << amount
+    @transaction_record[:debit] << "||"
     @transaction_record[:balance] = @balance 
   end
 

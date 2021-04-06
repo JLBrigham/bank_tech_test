@@ -23,8 +23,15 @@ describe 'account' do
   describe 'deposit' do
     it 'should update the transaction record with the date of the deposit, the amount and the current balance of the account' do
       account.deposit(20)
-      expect(account.transaction_record).to eq({ date: '06/04/2021', credit: 20, debit: '||',
+      #need to stub date rather than using today's date
+      expect(account.transaction_record).to eq({ date: ['06/04/2021'], credit: [20], debit: ['||'],
                                                  balance: 20 })
     end
+
+    it 'multiple deposits should be recorded in the transaction record, but the current balance is always displayed' do
+        account.deposit(20)
+        account.deposit(50)
+        expect(account.transaction_record).to eq({date: ['06/04/2021', '06/04/2021'], credit: [20, 50,], debit: ['||', '||'], balance: 70})
   end
+end
 end

@@ -4,6 +4,6 @@ class Transaction_record
   attr_accessor :record
 
   def initialize
-    @record = { date: nil, credit: nil, debit: nil, balance: nil }
+    @record = { date: [], credit: [], debit: [], balance:nil }
   end
 end
