@@ -23,7 +23,7 @@ describe 'account' do
   describe 'deposit' do
     it 'should update the transaction record with the date of the deposit, the amount and the current balance of the account' do
       account.deposit(20)
-      expect(account.transaction_record).to eq({ date: '06/04/2021', credit: 20.00, debit: '||',
+      expect(account.transaction_record).to eq({ date: '06/04/2021', credit: 20, debit: '||',
                                                  balance: 20 })
     end
   end
