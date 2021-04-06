@@ -13,8 +13,8 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    time = Time.new
-    @transaction_record[:date] << time.strftime("%d/%m/%Y")
+    
+    @transaction_record[:date] << date_of_transaction
     @transaction_record[:credit] << amount
     @transaction_record[:debit] << "||"
     @transaction_record[:balance] = @balance 
@@ -22,5 +22,11 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
+  end
+
+  private
+
+  def date_of_transaction
+    time = Time.new.strftime("%d/%m/%Y")
   end
 end
