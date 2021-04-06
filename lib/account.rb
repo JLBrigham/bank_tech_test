@@ -13,7 +13,6 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    
     @transaction_record[:date] << date_of_transaction
     @transaction_record[:credit] << amount
     @transaction_record[:debit] << "||"
@@ -22,6 +21,11 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
+    @transaction_record[:date] << date_of_transaction
+    @transaction_record[:credit] << "||"
+    @transaction_record[:debit] << amount
+    @transaction_record[:balance] = @balance 
+
   end
 
   private
