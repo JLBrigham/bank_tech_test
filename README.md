@@ -25,6 +25,21 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
+## Tech/Framework used:
+
+##### Built with:
+- Ruby
+- Rspec
+- Rubocop
+- Simplecov
+
+## How to use:
+
+- Clone this repo to your local computer
+- Run Bundle to insure you have the relevant Gems
+- Open IRB
+- require './lib/account'
+
 
 ## User Stories
 
@@ -47,3 +62,9 @@ As a user,
 So I can keep track of my money,
 I want to be able to see a statement with details of my transactions, including date, amount balance
 ```
+
+## Planning
+
+This was my initial plan for the classes and their methods, as you will see I have deviated from this quite a lot. In future i could benefit form further planning, perhaps writing some pseudocode as i've realised this helps me formulate my ideas.
+
+![Planning](images/class_plans.png)
