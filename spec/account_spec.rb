@@ -42,4 +42,13 @@ describe 'account' do
                                                   debit: '||', balance: 20 }, { date: date, credit: '||', debit: 10, balance: 10 }])
     end
   end
+
+  describe 'viewing a statement' do
+    before(:each) { account.deposit(20) }
+    let(:date) { Time.now.strftime('%d/%m/%Y') }
+
+    it 'should show list off all transactions under the colums date, credit, debit, balance' do
+      expect {account.print_statement}.to output("date || credit || debit || balance\n#{date} || 20 || || || 20.0\n").to_stdout
+    end
+  end
 end
