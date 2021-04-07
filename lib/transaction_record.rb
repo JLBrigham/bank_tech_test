@@ -6,4 +6,6 @@ class TransactionRecord
   def initialize(record = [])
     @record = record
   end
+
+
 end

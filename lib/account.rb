@@ -12,14 +12,14 @@ class Account
     @statement = statement
   end
 
-  def deposit(amount)
+  def deposit(amount, date = Time.new.strftime('%d/%m/%Y'))
     @balance += amount
-    deposit_update_transaction_record(amount)
+    deposit_update_transaction_record(amount, date)
   end
 
-  def withdraw(amount)
+  def withdraw(amount, date = Time.new.strftime('%d/%m/%Y'))
     @balance -= amount
-    withdraw_update_transaction_record(amount)
+    withdraw_update_transaction_record(amount, date)
   end
 
   def print_statement
@@ -30,15 +30,11 @@ class Account
 
   private
 
-  def date_of_transaction
-    Time.new.strftime('%d/%m/%Y')
+  def deposit_update_transaction_record(amount, date)
+    @transaction_record << { date: date, credit: "%.2f" % [amount], debit: '||', balance: "%.2f" %  [@balance] }
   end
 
-  def deposit_update_transaction_record(amount)
-    @transaction_record << { date: date_of_transaction, credit: "%.2f" % [amount], debit: '||', balance: "%.2f" %  [@balance] }
-  end
-
-  def withdraw_update_transaction_record(amount)
-    @transaction_record << { date: date_of_transaction, credit: '||', debit: "%.2f" % [amount], balance: "%.2f" %  [@balance]  }
+  def withdraw_update_transaction_record(amount, date)
+    @transaction_record << { date: date, credit: '||', debit: "%.2f" % [amount], balance: "%.2f" %  [@balance]  }
   end
 end
