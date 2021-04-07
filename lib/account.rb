@@ -13,19 +13,28 @@ class Account
   end
 
   def deposit(amount, date = Time.new.strftime('%d/%m/%Y'))
-    @balance += amount
+    credit(amount)
     @transaction_record.deposit(amount, date, balance)
   end
 
   def withdraw(amount, date = Time.new.strftime('%d/%m/%Y'))
-    @balance -= amount
+    debit(amount)
     @transaction_record.withdraw(amount, date, balance)
   end
 
   def print_statement
-    transactions = @transaction_record.record
-
+    transactions = @transaction_record.record.reverse
     @statement.print_transactions(transactions)
+  end
+
+  private
+
+  def credit(amount)
+    @balance += amount
+  end
+
+  def debit(amount)
+    @balance -= amount
   end
 
 
