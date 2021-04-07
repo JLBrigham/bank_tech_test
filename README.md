@@ -37,8 +37,13 @@ date || credit || debit || balance
 
 - Clone this repo to your local computer
 - Run Bundle to insure you have the relevant Gems
+- Run rspec to ensure all tests are passing
 - Open IRB
 - require './lib/account'
+
+### Here is a screenshot of the app in action
+
+![App_Running](images/app_screenshot.png)
 
 
 ## User Stories
