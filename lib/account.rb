@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 require_relative 'transaction_record'
+require_relative 'statement'
 
 class Account
-  attr_accessor :balance, :transaction_record
+  attr_accessor :balance, :transaction_record, :statement
 
-  def initialize(transaction_record = TransactionRecord.new)
+  def initialize(transaction_record = TransactionRecord.new, statement = Statement.new)
     @balance = 0.00
     @transaction_record = transaction_record.record
+    @statement = statement
   end
 
   def deposit(amount)
@@ -20,28 +22,11 @@ class Account
     withdraw_update_transaction_record(amount)
   end
 
-  def statement
-    counter = 0
-    print "date || credit || debit || balance\n"
-     @transaction_record.map do |transaction| 
-          transaction.each do |key, value|  
-            counter += 1
-            if counter % 5 == 0
-              puts "\n"
-            end
-            print value.to_s + " || "
+  def print_statement
+    transactions = @transaction_record
 
-          
-
-      end
-      
-     end
-    
-     
-      
-
+    @statement.print_transactions(transactions)
   end
-
 
   private
 
