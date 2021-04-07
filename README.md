@@ -65,6 +65,6 @@ I want to be able to see a statement with details of my transactions, including 
 
 ## Planning
 
-This was my initial plan for the classes and their methods, as you will see I have deviated from this quite a lot. In future i could benefit form further planning, perhaps writing some pseudocode as i've realised this helps me formulate my ideas.
+This was my initial plan for the classes and their methods, as you will see I have deviated from this quite a lot. In future I could benefit from further planning, perhaps writing some pseudocode as I've realised this helps me formulate my ideas. From that I could then create some more detailed class diagrams. 
 
 ![Planning](images/class_plans.png)
