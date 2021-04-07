@@ -8,33 +8,25 @@ class Account
 
   def initialize(transaction_record = TransactionRecord.new, statement = Statement.new)
     @balance = 0.00
-    @transaction_record = transaction_record.record
+    @transaction_record = transaction_record
     @statement = statement
   end
 
   def deposit(amount, date = Time.new.strftime('%d/%m/%Y'))
     @balance += amount
-    deposit_update_transaction_record(amount, date)
+    @transaction_record.deposit(amount, date, balance)
   end
 
   def withdraw(amount, date = Time.new.strftime('%d/%m/%Y'))
     @balance -= amount
-    withdraw_update_transaction_record(amount, date)
+    @transaction_record.withdraw(amount, date, balance)
   end
 
   def print_statement
-    transactions = @transaction_record
+    transactions = @transaction_record.record
 
     @statement.print_transactions(transactions)
   end
 
-  private
 
-  def deposit_update_transaction_record(amount, date)
-    @transaction_record << { date: date, credit: "%.2f" % [amount], debit: '||', balance: "%.2f" %  [@balance] }
-  end
-
-  def withdraw_update_transaction_record(amount, date)
-    @transaction_record << { date: date, credit: '||', debit: "%.2f" % [amount], balance: "%.2f" %  [@balance]  }
-  end
 end
