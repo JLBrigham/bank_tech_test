@@ -6,7 +6,7 @@ class Account
   attr_accessor :balance, :transaction_record
 
   def initialize(transaction_record = TransactionRecord.new)
-    @balance = 0
+    @balance = 0.00
     @transaction_record = transaction_record.record
   end
 
@@ -20,17 +20,28 @@ class Account
     withdraw_update_transaction_record(amount)
   end
 
-  # def statement
-  #    #print @transaction_record.keys
-  #    counter = 0
-  #    @transaction_record.each_with_index { |(key, value), i | while counter < i do
-  #     puts value[i]
+  def statement
+    counter = 0
+    print "date || credit || debit || balance\n"
+     @transaction_record.map do |transaction| 
+          transaction.each do |key, value|  
+            counter += 1
+            if counter % 5 == 0
+              puts "\n"
+            end
+            print value.to_s + " || "
 
-  #     counter += 1
-  #    end
-  #    }
+          
 
-  # end
+      end
+      
+     end
+    
+     
+      
+
+  end
+
 
   private
 
