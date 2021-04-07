@@ -35,10 +35,10 @@ class Account
   end
 
   def deposit_update_transaction_record(amount)
-    @transaction_record << { date: date_of_transaction, credit: amount, debit: '||', balance: @balance }
+    @transaction_record << { date: date_of_transaction, credit: "%.2f" % [amount], debit: '||', balance: "%.2f" %  [@balance] }
   end
 
   def withdraw_update_transaction_record(amount)
-    @transaction_record << { date: date_of_transaction, credit: '||', debit: amount, balance: @balance }
+    @transaction_record << { date: date_of_transaction, credit: '||', debit: "%.2f" % [amount], balance: "%.2f" %  [@balance]  }
   end
 end

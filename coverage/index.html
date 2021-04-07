@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-07T14:47:52+02:00">2021-04-07T14:47:52+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-07T15:01:48+02:00">2021-04-07T15:01:48+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -593,7 +593,7 @@
 
             
 
-            <code class="ruby">    @transaction_record &lt;&lt; { date: date_of_transaction, credit: amount, debit: &#39;||&#39;, balance: @balance }</code>
+            <code class="ruby">    @transaction_record &lt;&lt; { date: date_of_transaction, credit: &quot;%.2f&quot; % [amount], debit: &#39;||&#39;, balance: &quot;%.2f&quot; %  [@balance] }</code>
           </li>
         </div>
       
@@ -637,7 +637,7 @@
 
             
 
-            <code class="ruby">    @transaction_record &lt;&lt; { date: date_of_transaction, credit: &#39;||&#39;, debit: amount, balance: @balance }</code>
+            <code class="ruby">    @transaction_record &lt;&lt; { date: date_of_transaction, credit: &#39;||&#39;, debit: &quot;%.2f&quot; % [amount], balance: &quot;%.2f&quot; %  [@balance]  }</code>
           </li>
         </div>
       
@@ -1280,7 +1280,7 @@
 
             
 
-            <code class="ruby">      expect(account.transaction_record).to eq([{ date: date, credit: 20, debit: &#39;||&#39;,</code>
+            <code class="ruby">      expect(account.transaction_record).to eq([{ date: date, credit: &quot;20.00&quot;, debit: &#39;||&#39;,</code>
           </li>
         </div>
       
@@ -1291,7 +1291,7 @@
 
             
 
-            <code class="ruby">                                                  balance: 20 }])</code>
+            <code class="ruby">                                                  balance: &quot;20.00&quot; }])</code>
           </li>
         </div>
       
@@ -1346,7 +1346,7 @@
 
             
 
-            <code class="ruby">      expect(account.transaction_record).to eq([{ date: date, credit: 20, debit: &#39;||&#39;,</code>
+            <code class="ruby">      expect(account.transaction_record).to eq([{ date: date, credit: &quot;20.00&quot;, debit: &#39;||&#39;,</code>
           </li>
         </div>
       
@@ -1357,7 +1357,7 @@
 
             
 
-            <code class="ruby">                                                  balance: 20 }, { date: date, credit: 50,</code>
+            <code class="ruby">                                                  balance: &quot;20.00&quot; }, { date: date, credit: &quot;50.00&quot;,</code>
           </li>
         </div>
       
@@ -1368,7 +1368,7 @@
 
             
 
-            <code class="ruby">                                                                   debit: &#39;||&#39;, balance: 70 }])</code>
+            <code class="ruby">                                                                   debit: &#39;||&#39;, balance: &quot;70.00&quot; }])</code>
           </li>
         </div>
       
@@ -1423,7 +1423,7 @@
 
             
 
-            <code class="ruby">      expect(account.transaction_record).to eq([{ date: date, credit: 20,</code>
+            <code class="ruby">      expect(account.transaction_record).to eq([{ date: date, credit: &quot;20.00&quot;,</code>
           </li>
         </div>
       
@@ -1434,7 +1434,7 @@
 
             
 
-            <code class="ruby">                                                  debit: &#39;||&#39;, balance: 20 }, { date: date, credit: &#39;||&#39;, debit: 10, balance: 10 }])</code>
+            <code class="ruby">                                                  debit: &#39;||&#39;, balance: &quot;20.00&quot;}, { date: date, credit: &#39;||&#39;, debit: &quot;10.00&quot;, balance: &quot;10.00&quot; }])</code>
           </li>
         </div>
       
@@ -1533,7 +1533,7 @@
 
             
 
-            <code class="ruby">      expect {account.print_statement}.to output(&quot;date || credit || debit || balance\n#{date} || 20 || || || 20.0\n&quot;).to_stdout</code>
+            <code class="ruby">      expect {account.print_statement}.to output(&quot;date || credit || debit || balance\n#{date} || 20.00 || || || 20.00\n&quot;).to_stdout</code>
           </li>
         </div>
       

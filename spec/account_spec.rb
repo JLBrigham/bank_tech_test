@@ -25,21 +25,21 @@ describe 'account' do
     let(:date) { Time.now.strftime('%d/%m/%Y') }
 
     it 'each deposit should update the transaction record with the date of the deposit, the amount and the current balance of the account' do
-      expect(account.transaction_record).to eq([{ date: date, credit: 20, debit: '||',
-                                                  balance: 20 }])
+      expect(account.transaction_record).to eq([{ date: date, credit: "20.00", debit: '||',
+                                                  balance: "20.00" }])
     end
 
     it 'multiple deposits should be recorded in the transaction record' do
       account.deposit(50)
-      expect(account.transaction_record).to eq([{ date: date, credit: 20, debit: '||',
-                                                  balance: 20 }, { date: date, credit: 50,
-                                                                   debit: '||', balance: 70 }])
+      expect(account.transaction_record).to eq([{ date: date, credit: "20.00", debit: '||',
+                                                  balance: "20.00" }, { date: date, credit: "50.00",
+                                                                   debit: '||', balance: "70.00" }])
     end
 
     it 'each withdrawal should update the transaction record with the date of the withdrawal, the amount and the current balance of the account' do
       account.withdraw(10)
-      expect(account.transaction_record).to eq([{ date: date, credit: 20,
-                                                  debit: '||', balance: 20 }, { date: date, credit: '||', debit: 10, balance: 10 }])
+      expect(account.transaction_record).to eq([{ date: date, credit: "20.00",
+                                                  debit: '||', balance: "20.00"}, { date: date, credit: '||', debit: "10.00", balance: "10.00" }])
     end
   end
 
@@ -48,7 +48,7 @@ describe 'account' do
     let(:date) { Time.now.strftime('%d/%m/%Y') }
 
     it 'should show list off all transactions under the colums date, credit, debit, balance' do
-      expect {account.print_statement}.to output("date || credit || debit || balance\n#{date} || 20 || || || 20.0\n").to_stdout
+      expect {account.print_statement}.to output("date || credit || debit || balance\n#{date} || 20.00 || || || 20.00\n").to_stdout
     end
   end
 end
