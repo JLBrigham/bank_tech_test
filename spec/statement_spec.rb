@@ -10,6 +10,6 @@ describe 'statement' do
                       balance: 20 }]
     expect do
       statement.format_transactions(transactions)
-    end.to output("date || credit || debit || balance\ndate || 20 || || || 20\n").to_stdout
+    end.to output("date || credit || debit || balance\ndate || 20.00 || || || 20.00\n").to_stdout
   end
 end

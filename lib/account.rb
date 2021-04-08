@@ -7,7 +7,7 @@ class Account
   attr_accessor :balance, :transaction_history, :statement
 
   def initialize(transaction_history = TransactionHistory.new, statement = Statement.new)
-    @balance = 0.00
+    @balance = 0
     @transaction_history = transaction_history
     @statement = statement
   end
@@ -29,9 +29,7 @@ class Account
 
   private
 
-    def update_balance(amount)
-      @balance += amount
-    end
-
-
+  def update_balance(amount)
+    @balance += amount
+  end
 end

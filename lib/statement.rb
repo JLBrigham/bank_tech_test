@@ -1,27 +1,29 @@
 # frozen_string_literal: true
 
 class Statement
-
   def format_transactions(transaction_history)
-
-
     transaction_history.map do |transaction|
+      transaction[:credit] = case transaction[:credit]
+                             when nil
+                               '||'
+                             else
+                               format('%.2f', transaction[:credit])
+                             end
 
-      if transaction[:credit] == nil 
-        transaction[:credit] = "||"
-      elsif transaction[:debit] == nil
-        transaction[:debit] = "||"
+      transaction[:debit] = case transaction[:debit]
+                            when nil
+                              '||'
+                            else
+                              format('%.2f', transaction[:debit])
+                            end
+
+      transaction[:balance] = format('%.2f', transaction[:balance])
     end
-  end
 
-      print_transactions(transaction_history)
-    
-
-
+    print_transactions(transaction_history)
   end
 
   private
-
 
   def print_transactions(transaction_history)
     print "date || credit || debit || balance\n"
@@ -31,4 +33,3 @@ class Statement
     end
   end
 end
-

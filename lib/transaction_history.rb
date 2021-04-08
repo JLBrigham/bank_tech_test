@@ -3,15 +3,17 @@
 class TransactionHistory
   attr_accessor :record
 
+  DATE = Time.new.strftime('%d/%m/%Y')
+
   def initialize(record = [])
     @record = record
   end
 
-  def deposit(amount, balance, date = Time.new.strftime('%d/%m/%Y'))
-    @record << { date: date, credit: format('%.2f', amount), debit: nil, balance: format('%.2f', balance)  }
+  def deposit(amount, balance, date = DATE)
+    @record << { date: date, credit: amount, debit: nil, balance: balance }
   end
 
-  def withdraw(amount, balance, date = Time.new.strftime('%d/%m/%Y'))
-    @record << { date: date, credit: nil, debit: format('%.2f', amount), balance: format('%.2f', balance) }
+  def withdraw(amount, balance, date = DATE)
+    @record << { date: date, credit: nil, debit: amount, balance: balance }
   end
 end
