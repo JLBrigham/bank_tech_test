@@ -4,10 +4,23 @@ class Statement
 
   def format_transactions(transaction_history)
 
-    formatted_transactions = []
+
+    transaction_history.map do |transaction|
+
+      if transaction[:credit] == nil 
+        transaction[:credit] = "||"
+      elsif transaction[:debit] == nil
+        transaction[:debit] = "||"
+    end
+  end
+
+      print_transactions(transaction_history)
     
 
+
   end
+
+  private
 
 
   def print_transactions(transaction_history)

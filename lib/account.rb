@@ -24,7 +24,7 @@ class Account
 
   def print_statement
     transactions = @transaction_history.record.reverse
-    @statement.print_transactions(transactions)
+    @statement.format_transactions(transactions)
   end
 
   private
