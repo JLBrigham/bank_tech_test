@@ -12,14 +12,14 @@ class Account
     @statement = statement
   end
 
-  def deposit(amount, date = Time.new.strftime('%d/%m/%Y'))
+  def deposit(amount)
     update_balance(amount)
-    @transaction_history.deposit(amount, date, balance)
+    @transaction_history.deposit(amount, balance)
   end
 
-  def withdraw(amount, date = Time.new.strftime('%d/%m/%Y'))
+  def withdraw(amount)
     update_balance(amount * -1)
-    @transaction_history.withdraw(amount, date, balance)
+    @transaction_history.withdraw(amount, balance)
   end
 
   def print_statement

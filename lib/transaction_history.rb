@@ -7,11 +7,11 @@ class TransactionHistory
     @record = record
   end
 
-  def deposit(amount, date, balance)
-    @record << { date: date, credit: format('%.2f', amount), debit: '||', balance: format('%.2f', balance) }
+  def deposit(amount, balance, date = Time.new.strftime('%d/%m/%Y'))
+    @record << { date: date, credit: format('%.2f', amount), debit: '||', balance: format('%.2f', balance)  }
   end
 
-  def withdraw(amount, date, balance)
+  def withdraw(amount, balance, date = Time.new.strftime('%d/%m/%Y'))
     @record << { date: date, credit: '||', debit: format('%.2f', amount), balance: format('%.2f', balance) }
   end
 end
