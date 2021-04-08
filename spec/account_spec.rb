@@ -25,20 +25,20 @@ describe 'account' do
     let(:date) { Time.now.strftime('%d/%m/%Y') }
 
     it 'each deposit should update the transaction record with the date of the deposit, the amount and the current balance of the account' do
-      expect(account.transaction_record.record).to eq([{ date: date, credit: '20.00', debit: '||',
+      expect(account.transaction_history.record).to eq([{ date: date, credit: '20.00', debit: '||',
                                                          balance: '20.00' }])
     end
 
     it 'multiple deposits should be recorded in the transaction record' do
       account.deposit(50)
-      expect(account.transaction_record.record).to eq([{ date: date, credit: '20.00', debit: '||',
+      expect(account.transaction_history.record).to eq([{ date: date, credit: '20.00', debit: '||',
                                                          balance: '20.00' }, { date: date, credit: '50.00',
                                                                                debit: '||', balance: '70.00' }])
     end
 
     it 'each withdrawal should update the transaction record with the date of the withdrawal, the amount and the current balance of the account' do
       account.withdraw(10)
-      expect(account.transaction_record.record).to eq([{ date: date, credit: '20.00',
+      expect(account.transaction_history.record).to eq([{ date: date, credit: '20.00',
                                                          debit: '||', balance: '20.00' }, { date: date, credit: '||', debit: '10.00', balance: '10.00' }])
     end
   end

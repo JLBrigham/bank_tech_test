@@ -79,7 +79,6 @@
           null,
           1,
           7,
-          null,
           7,
           null,
           null,
@@ -107,7 +106,7 @@
           null
         ]
       },
-      "/Users/joannabrigham/Projects/week10/bank_tech_test/lib/transaction_record.rb": {
+      "/Users/joannabrigham/Projects/week10/bank_tech_test/lib/transaction_history.rb": {
         "lines": [
           null,
           null,
@@ -162,7 +161,7 @@
           null
         ]
       },
-      "/Users/joannabrigham/Projects/week10/bank_tech_test/spec/transaction_record_spec.rb": {
+      "/Users/joannabrigham/Projects/week10/bank_tech_test/spec/transaction_history_spec.rb": {
         "lines": [
           null,
           null,
@@ -191,6 +190,6 @@
         ]
       }
     },
-    "timestamp": 1617808024
+    "timestamp": 1617886009
   }
 }

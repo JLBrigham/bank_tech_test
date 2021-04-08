@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'transaction_record'
+require 'transaction_history'
 
-describe 'transaction record' do
-  let(:transactions) { TransactionRecord.new }
+describe 'transaction history' do
+  let(:transactions) { TransactionHistory.new }
   let(:date) { Time.now.strftime('%d/%m/%Y') }
 
   describe 'record' do

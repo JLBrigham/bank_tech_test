@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TransactionRecord
+class TransactionHistory
   attr_accessor :record
 
   def initialize(record = [])
