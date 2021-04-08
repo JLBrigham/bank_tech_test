@@ -1,11 +1,21 @@
 # frozen_string_literal: true
 
 class Statement
-  def print_transactions(transaction_record)
+
+  def format_transactions(transaction_history)
+
+    formatted_transactions = []
+    
+
+  end
+
+
+  def print_transactions(transaction_history)
     print "date || credit || debit || balance\n"
 
-    @statement = transaction_record.each do |transaction|
+    transaction_history.each do |transaction|
       print "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}\n"
     end
   end
 end
+

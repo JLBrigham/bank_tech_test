@@ -13,12 +13,12 @@ class Account
   end
 
   def deposit(amount, date = Time.new.strftime('%d/%m/%Y'))
-    credit(amount)
+    update_balance(amount)
     @transaction_history.deposit(amount, date, balance)
   end
 
   def withdraw(amount, date = Time.new.strftime('%d/%m/%Y'))
-    debit(amount)
+    update_balance(amount * -1)
     @transaction_history.withdraw(amount, date, balance)
   end
 
@@ -29,13 +29,9 @@ class Account
 
   private
 
-  def credit(amount)
-    @balance += amount
-  end
-
-  def debit(amount)
-    @balance -= amount
-  end
+    def update_balance(amount)
+      @balance += amount
+    end
 
 
 end
