@@ -128,10 +128,8 @@
           null,
           null,
           1,
-          null,
           1,
           2,
-          null,
           2,
           null,
           0,
@@ -149,20 +147,16 @@
           2,
           null,
           null,
-          null,
           2,
           null,
           null,
-          null,
           1,
-          null,
           null,
           1,
           2,
           null,
           2,
           2,
-          null,
           null,
           null,
           null
@@ -214,8 +208,56 @@
           null,
           null
         ]
+      },
+      "/Users/joannabrigham/Projects/week10/bank_tech_test/spec/transaction_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/joannabrigham/Projects/week10/bank_tech_test/lib/transaction.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          3,
+          1,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1617896673
+    "timestamp": 1617968881
   }
 }
